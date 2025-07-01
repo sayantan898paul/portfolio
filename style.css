@@ -1,0 +1,265 @@
+:root {
+    --bg-color: #FBE9D0;
+    --text-color: #244855;
+    --header-bg: #244855;
+    --header-text: #FBE9D0;
+    --accent-color: #E64833;
+    --section-alt-bg: #90AEAD;
+    --border-color: #874F41;
+    --card-bg: #FEFBF6; /* Matte off-white */
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Lato', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    margin: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.7;
+}
+
+main {
+    padding: 0 2rem;
+    overflow-x: hidden; /* Prevents horizontal scrollbar from animations */
+}
+
+header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+header h1 {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: 3rem;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav li {
+    margin: 0.5rem 1.5rem;
+}
+
+nav a {
+    color: var(--header-text);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+section {
+    padding: 4rem 0;
+    border-bottom: 1px solid rgba(135, 79, 65, 0.2);
+    opacity: 0; /* Initially hidden for animation */
+    transform: translateY(30px); /* Initial position for animation */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+section:last-of-type {
+    border-bottom: none;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+}
+
+h2 .fas {
+    margin-right: 15px;
+    color: var(--accent-color);
+}
+
+/* Skills Section */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.skill-category {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Softer shadow */
+    border-left: 5px solid var(--accent-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Subtler hover shadow */
+}
+
+.skill-category h3 {
+    margin-top: 0;
+    font-family: var(--font-heading);
+    color: var(--header-bg);
+}
+
+.skill-category ul {
+    list-style-type: '✓';
+    padding-left: 1.5rem;
+}
+
+.skill-category li {
+    padding-left: 10px;
+}
+
+/* Experience & Education */
+.job, #education article, .project {
+    margin-bottom: 2.5rem;
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Softer shadow */
+    border-left: 4px solid var(--section-alt-bg);
+}
+
+.job-details {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+/* Projects & Achievements */
+.btn {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--border-color);
+    transform: translateY(-3px);
+}
+
+#achievements a {
+    color: var(--accent-color);
+    font-weight: bold;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom-color 0.3s ease;
+}
+
+#achievements a:hover {
+    border-bottom-color: var(--accent-color);
+}
+
+/* Footer */
+footer {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    text-align: center;
+    padding: 3rem 1rem;
+    margin-top: 2rem; /* Changed from fixed position */
+}
+
+.contact-links a {
+    color: var(--header-text);
+    text-decoration: none;
+    margin: 0 1.5rem;
+    font-size: 1.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block; /* For transform to work */
+}
+
+.contact-links a:hover {
+    color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    main {
+        padding: 0 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+    h2 {
+        font-size: 2rem;
+    }
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    nav li {
+        margin: 0.8rem 0;
+    }
+}
+
+@media (max-width: 576px) {
+    main {
+        padding: 0 1rem;
+    }
+    .contact-links a {
+        margin: 0 1rem;
+        font-size: 1.3rem;
+    }
+}
+
+/* Tooltip Styles */
+.skill-category li[data-tooltip] {
+    position: relative;
+    cursor: help;
+}
+
+.skill-category li[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 125%; /* Position above the item */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(36, 72, 85, 0.9); /* Transparent dark blue */
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    pointer-events: none; /* The tooltip itself shouldn't be interactive */
+}
+
+.skill-category li[data-tooltip]:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
